@@ -1,66 +1,63 @@
-<script>
-    
-    function computerPlay() {
-        let out = Math.floor(Math.random() * 3)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock  Paper Scissors</title>
+    <script src="index.js" defer></script>
+</head>
 
-        switch (out) {
-            case 0:
-                return 'rock';
-                break;
-            case 1:
-                return 'scissors';
-                break;
-            case 2:
-                return 'paper'
-                break;
-        }
+
+<body>
+    <div id="output">
         
-    }
+
+    </div>
     
-    
+    <h2 style="text-align: center" id="score">Score: </h2>
+    <h3 style="text-align: center" id="scoreBoard">Your Points: 0: Ties: 0 Bot Points: 0<h3/>
 
-    function playRound() {
-        let player = prompt("What do you choose?");
-        let comp = computerPlay();
+    <div class="buttons">
 
-        player = player.toLowerCase()
-        
-        if(player===comp) return 0
-        if(player ==='rock') {
 
-            if(comp==='paper') {
-                return -1;
-            }
-            return 1;
-        } else if(player==='paper') {
+        <button id="rock" onclick="playRound('rock')">Rock</button>
+        <button id="paper" onclick="playRound('paper')">Paper</button>
+        <button id="scissors" onclick="playRound('scissors')">Scissors</button>
 
-            if(comp==='scissors') {
-                return -1;
-            }else return 1;
-        } else {
+    </div>
 
-            if(comp==='rock') {
-                return -1
-            }else return 1;
+    <style>
+        #output {
+            margin: auto;
+            margin-bottom: 1em;
+            border: 1px solid black;
+
+            width: 80%;
+            height: 6em;
+
+            display: flex;
         }
-    }
 
-    function game() {
-        let scoreKeeper = {'-1': 0, '0': 0, '1': 0}
-        const games=5;
-        for(let i=0;i<games;i++) {
-            let out = playRound();
-            if(out== -1) console.log('Computer wins!')
-            else if(out == 0) console.log('Tie!') 
-            else console.log('You win!')
-            scoreKeeper[out] += 1
+        #output p {
+            margin: auto;
+            font-size: 24px;
         }
-        console.log('You tied' + scoreKeeper[0] +" games, the bot won "+scoreKeeper[-1] +" games, and you won "+ scoreKeeper[1]+" games")
 
-        if(scoreKeeper[-1]>scoreKeeper[1]) {
-            console.log('bot wins!')
-        }else if(scoreKeeper[1]> scoreKeeper[-1]) console.log('you won!')
-        else console.log('you tied!')
 
-    }
-</script>
+        .buttons {
+            /* border: 1px solid black; */
+            display:flex;
+            gap: 1em;
+            justify-content: center;
+            height: 6em;
+        }
+
+        .buttons button {
+            width:65em;
+            font-size: 24px;
+            background-color: rgb(0, 238, 255);
+        }
+    </style>
+</body>
+</html>
