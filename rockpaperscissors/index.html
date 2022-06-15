@@ -1,0 +1,66 @@
+<script>
+    
+    function computerPlay() {
+        let out = Math.floor(Math.random() * 3)
+
+        switch (out) {
+            case 0:
+                return 'rock';
+                break;
+            case 1:
+                return 'scissors';
+                break;
+            case 2:
+                return 'paper'
+                break;
+        }
+        
+    }
+    
+    
+
+    function playRound() {
+        let player = prompt("What do you choose?");
+        let comp = computerPlay();
+
+        player = player.toLowerCase()
+        
+        if(player===comp) return 0
+        if(player ==='rock') {
+
+            if(comp==='paper') {
+                return -1;
+            }
+            return 1;
+        } else if(player==='paper') {
+
+            if(comp==='scissors') {
+                return -1;
+            }else return 1;
+        } else {
+
+            if(comp==='rock') {
+                return -1
+            }else return 1;
+        }
+    }
+
+    function game() {
+        let scoreKeeper = {'-1': 0, '0': 0, '1': 0}
+        const games=5;
+        for(let i=0;i<games;i++) {
+            let out = playRound();
+            if(out== -1) console.log('Computer wins!')
+            else if(out == 0) console.log('Tie!') 
+            else console.log('You win!')
+            scoreKeeper[out] += 1
+        }
+        console.log('You tied' + scoreKeeper[0] +" games, the bot won "+scoreKeeper[-1] +" games, and you won "+ scoreKeeper[1]+" games")
+
+        if(scoreKeeper[-1]>scoreKeeper[1]) {
+            console.log('bot wins!')
+        }else if(scoreKeeper[1]> scoreKeeper[-1]) console.log('you won!')
+        else console.log('you tied!')
+
+    }
+</script>
