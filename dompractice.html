@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="cont">
+
+
+    </div>
+
+
+    <script>
+        const cont = document.getElementById('cont')
+        const p = document.createElement('p')
+        p.style.color = 'red'
+        p.textContent = 'Hey I\'m red!'
+
+        const h3 = document.createElement('h3')
+        h3.style.color = 'blue'
+        h3.textContent = 'I\'m a blue h3!'
+
+        const div = document.createElement('h1')
+        div.style.cssText = 'border: 1px solid black; background-color: pink'
+
+        const p2 = document.createElement('p')
+        p2.textContent = 'ME TOO!'
+        const h1 = document.createElement('h1')
+        h1.textContent = 'I\'m in a div'
+
+        div.appendChild(h1)
+        div.appendChild(p2)
+
+
+        cont.appendChild(p)
+        cont.appendChild(h3)
+        cont.appendChild(div)
+    </script>
+
+</body>
+</html>
